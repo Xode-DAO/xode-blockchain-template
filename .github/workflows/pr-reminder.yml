@@ -2,6 +2,7 @@ name: PR Reminder
 
 permissions:
   pull-requests: write
+  issues: write
 
 on:
   pull_request:
