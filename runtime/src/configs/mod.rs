@@ -537,6 +537,8 @@ impl pallet_asset_rate::Config for Runtime {
 	type AssetKind = u32;
 	type RuntimeEvent = RuntimeEvent;
 	type WeightInfo = pallet_asset_rate::weights::SubstrateWeight<Runtime>;
+	#[cfg(feature = "runtime-benchmarks")]
+	type BenchmarkHelper = ();
 }
 
 parameter_types! {
@@ -568,6 +570,8 @@ impl pallet_treasury::Config for Runtime {
 	type Paymaster = frame_support::traits::tokens::pay::PayAssetFromAccount<pallet_assets::Pallet<Runtime>, XodeTreasuryAccount>;
 	type BalanceConverter = pallet_asset_rate::Pallet<Runtime>;
 	type PayoutPeriod = SpendPayoutPeriod;
+	#[cfg(feature = "runtime-benchmarks")]
+	type BenchmarkHelper = ();
 }
 
 /// ==========
